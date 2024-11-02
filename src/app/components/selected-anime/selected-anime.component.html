@@ -1,0 +1,18 @@
+@if(animes_selected.length > 0){
+<div class="myanime">
+    @for (anime of animes_selected; track $index) {
+    <div class="anime">
+        <img [src]="anime.imagen">
+        <h3>{{ anime.title }}</h3>
+        <div class="flex-1"></div>
+        <span class="episodes">{{ anime.watched_episodes }} / {{ anime.total_episodes }}</span>
+        @if(anime.watched_episodes !== anime.total_episodes){
+        <button type="button" (click)="increaseWatch(anime)" class="button">+</button>
+        }
+        @if(anime.watched_episodes > 0){
+        <button type="button" (click)="decreaseWatch(anime)" class="button">-</button>
+        }
+    </div>
+    }
+</div>
+}
